@@ -15,7 +15,7 @@ app.get('/task2A', (req, res) => {
 	res.send(sum.toString());
 	});
 
- // tASK2B
+ // task2B
 app.get('/task2B', (req, res) => {
   const fname = req.query.fullname;
   var fio = fname.split(' ');
@@ -37,6 +37,15 @@ app.get('/task2B', (req, res) => {
   	answer = 'Invalid fullname';
   }
   res.send(answer);
+});
+
+//task2C
+app.get('/task2C', (req, res) => {
+const url = req.query.username;
+const re = new RegExp('@?(https?:)?(\/\/)?((www|twitter|github|telegram|vk|vkontakte)[^\/]*\/)?([a-zA-Z0-9]*)', 'i');
+const usr = url.match(re);
+/*console.log(usr[5]);*/
+res.send('@' + usr[5]);
 });
 
 app.listen(3000, () => {
